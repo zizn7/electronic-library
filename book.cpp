@@ -66,6 +66,5 @@ void Book::Print() const
 		<< " ISBN: " << isbn_ 
 		<< " Loaned: " << loaned_ 
 		<< " Due Date: " << due_date_ << "\n";
-
 }
 
