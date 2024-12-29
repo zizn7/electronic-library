@@ -1,6 +1,4 @@
-﻿﻿#ifndef ELEC_AS_CPP_CUSTOMER
-#define ELEC_AS_CPP_CUSTOMER
-
+﻿
 #include <string>
 #include <vector>
 
@@ -26,5 +24,3 @@ private:
 	std::vector<Book> loans; 
 
 };
-
-#endif

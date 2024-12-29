@@ -33,30 +33,39 @@ Date Book::GetDueDate() const
 
 bool Book::Loan()
 {
-	if (loaned_ == false) {
+	if (!loaned_) { // Prefer concise syntax for checking `loaned_`
 		loaned_ = true;
 		due_date_ = Date::Today();
 		due_date_.month += 1;
+
 		if (due_date_.month > 12) {
-			due_date_ -= 12;
+			due_date_.month -= 12; // Fix subtraction logic
 			due_date_.year += 1;
 		}
-	 }
-	return true;
-	else {
-		return false;
+		return true; // The book was successfully loaned
 	}
+
+	// If the book is already loaned
+	return false;
 }
+
 
 void Book::Restore()
 {
 	due_date_ = { 0, 0, 0 };
 	loaned_ = false;
 }
-
+static std::ostream& operator<< (std::ostream& os, const Date& date) {
+	os << date.day << "/" << date.month << "/" << date.year;
+	return os;
+}
 void Book::Print() const
 {
-	std::cout << "Book: " << name_ << " author: " << author_ << " ISBN: " << isbn_ << " Loaned: " << loaned_ << " Due Date: " << due_date_ << "\n";
+	std::cout << "Book: " << name_ 
+		<< " author: " << author_ 
+		<< " ISBN: " << isbn_ 
+		<< " Loaned: " << loaned_ 
+		<< " Due Date: " << due_date_ << "\n";
 
 }
 

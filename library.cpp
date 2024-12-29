@@ -16,7 +16,12 @@ const std::string Library::GetName()
 
 std::vector<Book>& Library::GetBooks()
 {
-	// TODO: insert return statement here
+	return books_;
+}
+
+std::vector<Customer>& Library::GetCustomers()
+{
+	return Customers_;
 }
 
 Book Library::FindBookByName(const std::string& booktitle)
@@ -39,17 +44,17 @@ Book Library::FindBookByName(const std::string& booktitle)
 		std::cout << "enter the book's isbn";
 		std::cin >> isbn;
 
-		Book newbook(name, author, isbn, bool status = false, Date due_date = { 0, 0, 0 })
+		Book newbook(name, author, isbn, false);
 	}
 }
 
-Book Library::FindBooksByAuthor(const std::string& booktauthor)
+std::vector<Book> Library::FindBooksByAuthor(const std::string& booktauthor)
 {
 	std::vector<Book> vectorbookauthor = {};
 	bool a = false;
 	for (auto& i : Library::books_) {
 		if (i.GetAuthor() == booktauthor)
-			vectorbookauthor.push_back(i)
+			vectorbookauthor.push_back(i);
 	}
 	return vectorbookauthor;
 }
@@ -68,10 +73,10 @@ std::vector<Book>& Library::FindAllLoanedBooks()
 Customer Library::FindCustomer(const std::string& customerid)
 {
 	bool a = false;
-	for (auto& i : cutomers_) {
+	for (auto& i : Library::Customers_) {
 		if (i.GetID() == customerid) {
-			return i;
 			a = true;
+			return i;
 			break;
 		}
 	}
@@ -82,6 +87,6 @@ Customer Library::FindCustomer(const std::string& customerid)
 
 		std::cout << "enter the book customer's id";
 		std::cin >> id;
-		Customer(name, id)
+		Customer newcx(name, id);
 	}
 }

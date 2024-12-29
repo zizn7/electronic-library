@@ -15,30 +15,16 @@ public:
 	// Getters
 	const std::string GetName();
 	std::vector<Book>& GetBooks();
-	std::vector<Book>& GetCustomers();
+	std::vector<Customer>& GetCustomers();
 
-
+	//methods
 	Book FindBookByName(const std::string& booktitle);
 	
-	Book FindBooksByAuthor(const std::string& booktauthor);
+	std::vector<Book> FindBooksByAuthor(const std::string& booktauthor);
 
 	std::vector<Book>& FindAllLoanedBooks();
 
-	
-
 	Customer FindCustomer(const std::string& customerid);
-
-		   /**
-			* \brief Searches for a customer with specfied id
-			*
-			* Function identifier: FindCustomer
-			*
-			* \param id the id of the customer (a const reference to a string)
-			*
-			* \return A copy of the found customer. if a Customer is not found, a new
-			* Customer with empty name and id is returned.
-			*/
-
 
 private:
 	std::string name_;
