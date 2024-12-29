@@ -1,7 +1,4 @@
-﻿﻿#ifndef ELEC_AS_CPP_BOOK
-#define ELEC_AS_CPP_BOOK
-
-#include <ctime>
+﻿#include <ctime>
 #include <string>
 
 /**
@@ -47,4 +44,3 @@ private:
     Date due_date_;
 };
 
-#endif
